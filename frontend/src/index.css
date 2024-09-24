@@ -1,0 +1,74 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+body {
+  -ms-overflow-style: none; /* Hide scrollbar for Internet Explorer and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.25rem;
+  max-height: 130px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.task-list.expanded {
+  max-height: none;
+  overflow-y: auto;
+}
+
+.task {
+  background-color: var(--task-bg-color, #f3f4f6);
+  color: var(--task-text-color, #000);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.task:hover {
+  background-color: var(--task-hover-bg-color, #9ca3af);
+  color: #fff;
+}
+
+.task-count-badge {
+  background-color: #3b82f6;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.375rem;
+  margin-left: 0.5rem;
+}
+
+.more-tasks {
+  color: #6366f1;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.more-tasks:hover {
+  color: #4338ca;
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.-translate-x-full {
+  transform: translateX(-100%);
+}
